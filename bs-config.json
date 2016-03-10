@@ -1,0 +1,5 @@
+{
+  "port": 6393,
+  "files": ["./.compiled/www/**/*.{html,htm,css,js}"],
+  "server": { "baseDir": "./.compiled/www" }
+}
