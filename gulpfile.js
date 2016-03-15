@@ -14,7 +14,10 @@ var libs = [
       "rxjs/bundles/Rx.js",
       "angular2/bundles/angular2.dev.js",
       
-      "angular2/bundles/router.dev.js"
+      "angular2/bundles/router.dev.js",
+
+      "es6-shim/es6-shim.map",
+      "systemjs/dist/system-polyfills.js.map"
 ];
 
 
