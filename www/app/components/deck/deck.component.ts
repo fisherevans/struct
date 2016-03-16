@@ -1,9 +1,9 @@
 import {Component} from 'angular2/core';
 import {OnInit} from "angular2/core";
 
-import {DeckService} from "../../services/deck.service";
+import {Deck} from "../../classes/deck.class";
 import {BoardComponent} from "../board/board.component";
-import {BoardService} from "../../services/board.service";
+import {Board} from "../../classes/board.class";
 
 @Component({
     selector: 'deck',
@@ -13,26 +13,26 @@ import {BoardService} from "../../services/board.service";
 })
 
 export class DeckComponent implements OnInit {
-    public deckService: DeckService;
+    public deck: Deck;
     public selectedCardName: string;
 
     constructor() { }
 
     public getName(): string {
-        return this.deckService.name;
+        return this.deck.name;
     }
 
     public getDescription(): string {
-        return this.deckService.description;
+        return this.deck.description;
     }
 
-    public getBoards(): BoardService[] {
-        return this.deckService.boards;
+    public getBoards(): Board[] {
+        return this.deck.boards;
     }
 
     ngOnInit() {
-        this.deckService = new DeckService("A New Deck", "Some description");
-        this.deckService.addBoard("Main Board", "The main deck");
+        this.deck = new Deck("A New Deck", "Some description");
+        this.deck.addBoard("Main Board", "The main deck");
         this.selectedCardName = null;
     }
 }

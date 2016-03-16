@@ -1,4 +1,4 @@
-export class BoardService {
+export class Board {
     public name: string;
     public description: string;
     public cards: { [cardName: string]: number };

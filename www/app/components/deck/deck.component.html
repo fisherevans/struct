@@ -4,6 +4,6 @@
         <div class="description">{{getDescription()}}</div>
     </div>
     <div class="boards">
-        <board *ngFor="#board of getBoards()" [boardService]="board"></board>
+        <board *ngFor="#board of getBoards()" [board]="board"></board>
     </div>
 </div>
