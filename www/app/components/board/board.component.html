@@ -1,6 +1,20 @@
-<div class="board">
+<div class="board box inset">
     <div class="board-info">
         <div class="name">{{board.name}}</div>
         <div class="description">{{board.description}}</div>
+    </div>
+    <div class="categories" *ngFor="#category of board.cards | boardCategories">
+        <div class="category">
+            <div class="name">{{category.name}} ({{getCategoryTotal(category)}})</div>
+            <div class="cards">
+                <card-line *ngFor="#cardRef of category.cards"
+                [cardRef]="cardRef"
+                [board]="board"
+                [deckManager]="deckManager"></card-line>
+            </div>
+        </div>
+    </div>
+    <div class="summary">
+        <div class="total">Total: {{getTotal()}}</div>
     </div>
 </div>

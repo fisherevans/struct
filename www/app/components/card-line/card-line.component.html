@@ -1,0 +1,16 @@
+<div class="card-line" *ngIf="cardRef.card">
+    <div class="count">
+        <div class="add noSelect" (click)="modifyCount(1)">+</div>
+        <div class="value">{{cardRef.count}}</div>
+        <div class="sub noSelect" (click)="modifyCount(-1)">-</div>
+    </div>
+    <div class="cost">
+        <img class="color-icon" *ngFor="#cost of getManaArray()" src="img/mana/{{cost}}.png" alt="{{cost}}" />
+    </div>
+    <div class="name" (click)="selectCard()">
+        {{cardRef.card.name}}
+    </div>
+</div>
+<div class="card-line" *ngIf="!cardRef.card">
+    {{cardRef.count}} x unknown
+</div>

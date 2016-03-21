@@ -1,27 +1,25 @@
 import {Injectable} from 'angular2/core'
-import {RAW_CARD_DB} from './card-db.service.mock-data';
 import {Card} from '../interfaces/card.interface';
 
 @Injectable()
 export class CardDBService {
-    constructor(private _cards: { [cardName: string]: Card }) {
-        _cards = {};
-        Object.keys(RAW_CARD_DB).map(function(cardName) {
-            var rawCard = RAW_CARD_DB[cardName];
+    private cards: { [cardName: string]: Card };
+    constructor() {
+        let tempCards = {};
+        Object.keys(window['rawCards']).map(function(cardName) {
+            var rawCard = window['rawCards'][cardName];
             var cost = {};
             if(rawCard.manaCost) {
-                var costMatches = rawCard.manaCost.match(/\{[0-9A-Z]\}/g);
+                var costMatches = rawCard.manaCost.match(/\{[^{]+\}/g);
                 costMatches.forEach(function (rawCost) {
-                    var key:string = null;
-                    var value:number = 1;
-                    if (rawCost.indexOf("U") > 0) key = "U";
-                    else if (rawCost.indexOf("B") > 0) key = "B";
-                    else if (rawCost.indexOf("G") > 0) key = "G";
-                    else if (rawCost.indexOf("R") > 0) key = "R";
-                    else if (rawCost.indexOf("W") > 0) key = "W";
-                    else {
+                    var key:string, value:number;
+                    var colorless = rawCost.match(/\{[0-9]+\}/);
+                    if(colorless) {
                         key = "C";
                         value = +rawCost.replace("{", "").replace("}", "");
+                    } else {
+                        key = rawCost.replace("{", "").replace("}", "");
+                        value = 1;
                     }
                     if (key != null) {
                         if (!cost[key]) {
@@ -44,10 +42,11 @@ export class CardDBService {
                 toughness: rawCard.toughness,
                 rarity: rawCard.rarity
             };
-            _cards[cardName] = card;
+            tempCards[cardName] = card;
         });
+        this.cards = tempCards;
     }
     getCard(name) {
-        return this._cards[name];
+        return this.cards[name];
     }
 }

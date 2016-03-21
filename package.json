@@ -2,7 +2,7 @@
   "name": "struct",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run gulp-clean && npm run gulp-libs && npm run gulp-compile && concurrently \"npm run gulp-sass-watch\" \"npm run gulp-ts-watch\" \"npm run gulp-html-watch\" \"npm run lite\" ",
+    "start": "npm run gulp-clean && npm run gulp-libs && npm run gulp-compile && concurrently \"npm run gulp-sass-watch\" \"npm run gulp-ts-watch\" \"npm run gulp-static-watch\" \"npm run lite\" ",
     
     "gulp-sass":  "gulp sass",
     "gulp-sass-watch":  "gulp sass:watch",
@@ -10,10 +10,10 @@
     "gulp-ts":  "gulp ts",
     "gulp-ts-watch":  "gulp ts:watch",
     
-    "gulp-html":  "gulp html",
-    "gulp-html-watch":  "gulp html:watch",
+    "gulp-static":  "gulp static",
+    "gulp-static-watch":  "gulp static:watch",
     
-    "gulp-compile": "npm run gulp-sass && npm run gulp-ts && npm run gulp-html",
+    "gulp-compile": "npm run gulp-sass && npm run gulp-ts && npm run gulp-static",
     
     "gulp-clean":  "gulp clean",
     "gulp-libs":  "gulp libs",

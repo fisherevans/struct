@@ -1,0 +1,21 @@
+<div class="card-details box" *ngIf="card">
+    <img class="card-image" src="http://gatherer.wizards.com/Handlers/Image.ashx?type=card&multiverseid={{card.multiverseId}}" />
+    <div class="name">{{card.name}}</div>
+    <div class="type">{{card.type}}</div>
+    <div class="text" *ngIf="card.text">{{card.text}}</div>
+    <div class="flavor" *ngIf="card.flavor">{{card.flavor}}</div>
+    <div class="combat-stats" *ngIf="card.power">{{card.power}} / {{card.toughness}}</div>
+    <ul class="links">
+        <li>
+            <a target="_blank"
+               href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid={{card.multiverseId}}">
+                Gatherer
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="card-details box empty" *ngIf="!card">
+    <img class="card-image" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=75891&type=card" />
+    <div class="name">No Card Selected</div>
+    <div class="text">Click on a card to view its details.</div>
+</div>

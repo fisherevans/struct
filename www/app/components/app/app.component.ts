@@ -6,12 +6,7 @@ import {RouteDefinition} from "angular2/router";
 
 @Component({
     selector: 'app',
-    template:`
-        <ul>
-            <a [routerLink]="['DeckComponent']">Builder</a>
-        </ul>
-        <router-outlet></router-outlet>
-      `,
+    templateUrl: 'app/components/app/app.component.html',
     styleUrls: ['app/components/app/app.component.css'],
     directives: [ROUTER_DIRECTIVES],
     providers: [ROUTER_PROVIDERS]

@@ -1,0 +1,52 @@
+.card-details {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  float: right;
+  width: 200pt;
+  background-color: #ffffff;
+  overflow-y: scroll;
+
+  .card-image {
+    display: block;
+    position: relative;
+    width: 25%;
+    margin: 4pt auto;
+
+    &.big {
+
+    }
+
+    &.small {
+
+    }
+  }
+
+  .name, .type, .text, .flavor, .combat-stats, .links {
+    margin: 4pt;
+  }
+
+  .name {
+    font-size: 12pt;
+    font-weight: 700;
+  }
+
+  .type {
+    font-weight: 700;
+  }
+
+  .text, .flavor {
+    white-space: pre-wrap;
+  }
+
+  .flavor {
+    font-style: italic;
+    color: #808080;
+  }
+
+  .combat-stats {
+    text-align: right;
+  }
+}

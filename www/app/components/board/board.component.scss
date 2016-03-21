@@ -1,0 +1,25 @@
+.board {
+  .board-info {
+    margin-bottom: 12pt;
+    .name {
+      font-size: 12pt;
+      font-weight: 700;;
+    }
+
+    .description {
+      color: #606060;
+    }
+  }
+
+  .categories {
+
+    .category {
+      margin: 8pt 0;
+
+      .name {
+        font-weight: 700;
+        margin: 4pt 0;
+      }
+    }
+  }
+}

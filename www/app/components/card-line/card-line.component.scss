@@ -1,0 +1,72 @@
+$height: 18pt;
+
+.card-line {
+  height: $height;
+  background-color: #ffffff;
+  border-bottom: 1pt solid #d0d0d0;
+  
+  &:hover {
+    background-color: #f8f8f8;
+  }
+
+  .count, .cost, .name {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .count {
+    height: $height;
+    font-size: 0;
+
+    .add, .value, .sub {
+      height: $height;
+      line-height: $height;
+      display: inline-block;
+      text-align: center;
+      font-size: 10pt;
+    }
+
+    .add, .sub {
+      width: 12pt;
+      cursor: pointer;
+      background: #f0f0f0;
+      font-weight: 700;
+
+      &:hover {
+        background-color: #d0d0d0;
+      }
+    }
+
+    .value {
+      min-width: 16pt;
+      background-color: #ffffff;
+    }
+  }
+  
+  .cost { /* http://media-dominaria.cursecdn.com/attachments/78/580/635032491774708003.png */
+    padding: 0 4pt;
+    min-width: 48pt;
+    text-align: right;
+    height: $height;
+
+    .color-icon {
+      padding: 4pt 1pt;
+      width: 10pt;
+      height: 10pt;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+
+  .name {
+    height: $height;
+    line-height: $height;
+    color: #0088ff;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      color: #0066bb;
+    }
+  }
+}

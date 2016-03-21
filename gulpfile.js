@@ -52,12 +52,12 @@ gulp.task('ts:watch', function () {
 });
 
 
-gulp.task('html', function () {
-  return gulp.src('./www/**/*.html')
+gulp.task('static', function () {
+  return gulp.src('./www/**/*.{html,js,json,png}')
     .pipe(gulp.dest('./.compiled/www'));
 });
-gulp.task('html:watch', function () {
-  gulp.watch('./www/**/*.html', ['html']);
+gulp.task('static:watch', function () {
+  gulp.watch('./www/**/*.{html,js,json,png}', ['static']);
 });
 
 

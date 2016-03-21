@@ -25,11 +25,14 @@ console.log("Got the cards, transoforming them");
   var cards = {};
   setArray.forEach(function(set) {
     set.cards.forEach(function(card) {
+      if(card["type"]) {
+        card.type = card.type.replace(/[^a-zA-Z0-9 ]/, "-");
+      }
       cards[card.name] = card;
     })
   });
   console.log("Saving the new json");
-  var stringData = "export var RAW_CARD_DB = " + JSON.stringify(cards, null, " ") + ";";
-  stringData = stringData.replace("—", "-")
-  fs.writeFile("www/app/services/card-db.service.mock-data.ts", stringData);
+  var stringData = JSON.stringify(cards, null, " ");
+  stringData = stringData.replace(/[—]/, "-");
+  fs.writeFile("www/cards.json", stringData);
 });

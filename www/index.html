@@ -2,7 +2,9 @@
     <head>
         <base href="/">
         <title>Struct - Deck Builder</title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,900,400italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="app/styles.css">
 
         <!-- be sure to include these in the gulpfile.js -->
@@ -18,18 +20,37 @@
         <script src="libs/angular2/bundles/router.dev.js"></script>
 
         <script>
-            System.config({
-                packages: {
-                    "app": {
-                        format: 'register',
-                        defaultExtension: 'js'
+            var loadApp = function() {
+                System.config({
+                    packages: {
+                        "app": {
+                            format: 'register',
+                            defaultExtension: 'js'
+                        }
+                    }
+                });
+                System.import('app/main').then(null, console.error.bind(console));
+            };
+            var ajax = new XMLHttpRequest();
+            ajax.open("GET", "cards.json", true);
+            ajax.setRequestHeader("Content-type", "application/json");
+            ajax.onreadystatechange = function() {
+                if(ajax.readyState == 4) {
+                    if (ajax.status == 200) {
+                        window.rawCards = JSON.parse(ajax.responseText);
+                        loadApp();
+                    } else {
+                        document.write("There was an error loading the card DB! "
+                                     + ajax.status);
                     }
                 }
-            });
-            System.import('app/main').then(null, console.error.bind(console));
+            }
+            ajax.send();
         </script>
     </head>
     <body>
-        <app>Loading...</app>
+        <app>
+            <div class="loading">Loading...</div>
+        </app>
     </body>
 </html>
