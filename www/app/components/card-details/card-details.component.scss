@@ -15,12 +15,8 @@
     width: 25%;
     margin: 4pt auto;
 
-    &.big {
-
-    }
-
-    &.small {
-
+    &:hover {
+      width: 95%;
     }
   }
 

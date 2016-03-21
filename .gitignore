@@ -1,5 +1,6 @@
 .DS_Store
-.idea/workspace.xml
+.idea
+www/cards.json
 node_modules/
 .compiled/
 typings/
