@@ -2,7 +2,7 @@
     <img class="card-image" src="http://gatherer.wizards.com/Handlers/Image.ashx?type=card&multiverseid={{card.multiverseId}}" />
     <div class="name">{{card.name}}</div>
     <div class="type">{{card.type}}</div>
-    <div class="text" *ngIf="card.text">{{card.text}}</div>
+    <div class="text" *ngIf="card.text" [innerHTML]="card.text | manaReplace"></div>
     <div class="flavor" *ngIf="card.flavor">{{card.flavor}}</div>
     <div class="combat-stats" *ngIf="card.power">{{card.power}} / {{card.toughness}}</div>
     <ul class="links">

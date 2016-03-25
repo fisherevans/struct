@@ -11,6 +11,15 @@ export class Deck {
         this.boards = [];
     }
 
+    getBoard(name:string):Board {
+        for(var id = 0;id < this.boards.length;id++) {
+            if(this.boards[id].name == name) {
+                return this.boards[id];
+            }
+        }
+        return null;
+    }
+
     addBoard(name: string, description: string): Board {
         var board = new Board(name, description);
         this.boards.push(board);

@@ -1,0 +1,12 @@
+<div class="create box">
+    <div class="file-row">
+        <div class="text">Load deck from file:</div>
+        <input class="file-select" type="file" (change)="loadFile($event)" accept=".txt"/>
+    </div>
+    <textarea class="input" [(ngModel)]="input"></textarea>
+    <div class="error" *ngIf="error">{{error}}</div>
+    <div class="action-row">
+        <div class="button orange reset" (click)="reset()">Reset</div>
+        <div class="button open" (click)="open()">Open</div>
+    </div>
+</div>

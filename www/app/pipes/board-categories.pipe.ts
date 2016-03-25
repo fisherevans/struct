@@ -26,13 +26,12 @@ export class BoardCategoriesPipe implements PipeTransform {
                 "Sorcery",
                 "Instant",
                 "Enchantment",
-                "Planeswalker"
+                "Planeswalker",
+                "Equipment"
             ];
             var baseType = card.type.replace(/ +-.*/, "");
             for(var id = 0;id < TrumpTypes.length;id++) {
-                console.log(baseType + " has " + TrumpTypes[id] + "?");
                 if(baseType.indexOf(TrumpTypes[id]) >= 0) {
-                    console.log("true");
                     return TrumpTypes[id];
                 }
             }

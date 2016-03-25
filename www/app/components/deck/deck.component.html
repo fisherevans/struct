@@ -1,10 +1,10 @@
-<card-details [card]="selectedCard"></card-details>
+<card-details [card]="getSelectedCard()"></card-details>
 <div class="deck">
     <div class="deck-info">
         <div class="name">{{getName()}}</div>
         <div class="description">{{getDescription()}}</div>
     </div>
     <div class="boards">
-        <board *ngFor="#board of getBoards()" [board]="board" [deckManager]="deckManager"></board>
+        <board *ngFor="#board of getBoards()" [board]="board"></board>
     </div>
 </div>

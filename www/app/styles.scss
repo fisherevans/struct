@@ -49,3 +49,32 @@ input {
     -ms-user-select: none;
     user-select: none;
 }
+
+.button {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3pt;
+    font-width: 700;
+    padding: 8pt 16pt;
+    background-color: #0088ff;
+    color: #ffffff;
+    border: 1pt solid #006dcc;
+
+    &:hover {
+        background-color: #e6f3ff;
+        color: #0088ff;
+        border: 1pt solid #0088ff;
+    }
+}
+
+.button.orange {
+    background-color: #ff8800;
+    color: #ffffff;
+    border: 1pt solid #cc6d00;
+
+    &:hover {
+        background-color: #fff3e6;
+        color: #ff8800;
+        border: 1pt solid #ff8800;
+    }
+}

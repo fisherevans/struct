@@ -1,0 +1,44 @@
+.create {
+  max-width: 500pt;
+  width: 95%;
+  background-color: #ffffff;
+  margin: 8pt auto;
+
+  .file-row {
+    text-align: center;
+    .text, .file-select {
+      text-align: left;
+      display: inline-block;
+    }
+  }
+
+  .input {
+    width: 100%;
+    min-height: 200pt;
+    font-family: 'Droid Sans Mono', monospace;
+    border: 1pt solid #d0d0d0;
+    margin: 8pt 0;
+    padding: 4pt;
+    color: #808080;
+    font-size: 8pt;
+  }
+
+  .error {
+    text-align: center;
+    margin: 8pt 12pt;
+    font-weight: 700;
+    color: #ff0000;
+  }
+
+  .action-row {
+    overflow: auto;
+
+    .reset {
+      float: left;
+    }
+
+    .open {
+      float: right;
+    }
+  }
+}

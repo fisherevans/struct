@@ -3,12 +3,11 @@ import {Input} from "angular2/core";
 import {CardReference} from "../../interfaces/card-reference.interface";
 import {Board} from "../../classes/board.class";
 import {Card} from "../../interfaces/card.interface";
-import {DeckManager} from "../../classes/deck-manager.class";
+import {StateService} from "../../services/state.service";
 
 @Component({
     selector: 'card-line',
-    inputs: ['cardRef', 'board', 'deckManager'],
-    outputs: ['cardSelected'],
+    inputs: ['cardRef', 'board'],
     templateUrl: 'app/components/card-line/card-line.component.html',
     styleUrls: ['app/components/card-line/card-line.component.css']
 })
@@ -16,15 +15,12 @@ import {DeckManager} from "../../classes/deck-manager.class";
 export class CardLineComponent implements OnInit {
     cardRef: CardReference;
     board: Board;
-    deckManager: DeckManager;
 
-    cardSelected = new EventEmitter();
-
-    constructor() {
+    constructor(private _stateService:StateService) {
     }
 
     selectCard() {
-        this.deckManager.cardSelected(this.cardRef.card.name);
+        this._stateService.setSelectedCard(this.cardRef.card.name);
     }
 
     getManaArray() {

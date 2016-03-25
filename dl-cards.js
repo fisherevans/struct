@@ -28,7 +28,11 @@ console.log("Got the cards, transoforming them");
       if(card["type"]) {
         card.type = card.type.replace(/[^a-zA-Z0-9 ]/, "-");
       }
-      cards[card.name] = card;
+      if(cards[card.name] && cards[card.name].multiverseid && !card.multiverseid) {
+        // dont
+      } else {
+        cards[card.name] = card;
+      }
     })
   });
   console.log("Saving the new json");
