@@ -1,6 +1,5 @@
 .board {
   .board-info {
-    margin-bottom: 12pt;
     .name {
       font-size: 12pt;
       font-weight: 700;;
@@ -8,6 +7,24 @@
 
     .description {
       color: #606060;
+    }
+  }
+  
+  .add-card {
+    .name, .count, .submit {
+      display: inline-block;
+    }
+    
+    .name {
+      width: 120pt;
+    }
+    
+    .count {
+      width: 24pt;
+    }
+    
+    .submit {
+      width: 100pt;
     }
   }
 

@@ -3,6 +3,11 @@
         <div class="name">{{board.name}}</div>
         <div class="description">{{board.description}}</div>
     </div>
+    <div class="add-card">
+        <input [(ngModel)]="addCardForm.name" type="text" class="name" placeholder="Card Name" />
+        <input [(ngModel)]="addCardForm.count" type="number" class="count" />
+        <div (click)="addCard()" class="small submit button">Add Card</div>
+    </div>
     <div class="categories" *ngFor="#category of board.cards | boardCategories">
         <div class="category">
             <div class="name">{{category.name}} ({{getCategoryTotal(category)}})</div>

@@ -8,6 +8,11 @@ import {BoardCategoriesPipe} from "../../pipes/board-categories.pipe";
 import {StateService} from "../../services/state.service";
 import {CardReference} from "../../interfaces/card-reference.interface";
 
+export interface AddCardForm {
+    name: string;
+    count: number;
+}
+
 @Component({
     selector: 'board',
     inputs: ['board'],
@@ -20,7 +25,17 @@ import {CardReference} from "../../interfaces/card-reference.interface";
 export class BoardComponent implements OnInit {
     board: Board;
 
+    addCardForm:AddCardForm = {
+        name: "",
+        count: 0
+    };
+
     constructor(private _cardDB: CardDBService) {
+    }
+
+    addCard() {
+        this.addCardForm.count = 1;
+        this.addCardForm.name = "";
     }
 
     getCard(cardName: string) {
